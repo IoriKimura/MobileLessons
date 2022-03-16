@@ -6,6 +6,8 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
 
+import java.util.Calendar;
+
 public class MainActivity extends AppCompatActivity {
 
     @Override
@@ -30,5 +32,23 @@ public class MainActivity extends AppCompatActivity {
     public void onNeutralClicked() {
         Toast.makeText(getApplicationContext(), "Вы выбрали кнопку \"На паузе\"!",
                 Toast.LENGTH_LONG).show();
+    }
+
+    public void onClickTime(View view){
+        MyTimeDialogFragment myTimeDialogFragment = new MyTimeDialogFragment();
+        Calendar curTime = Calendar.getInstance();
+        int hour = curTime.get(Calendar.HOUR_OF_DAY);
+        int minute = curTime.get(Calendar.MINUTE);
+
+        myTimeDialogFragment.TimePickerDialog(this, 0, ,hour, minute, true);
+        myTimeDialogFragment.show();
+    }
+
+    public void onClickDate(View view){
+
+    }
+
+    public void onClickProgress(View view){
+
     }
 }
