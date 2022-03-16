@@ -16,3 +16,5 @@ rootProject.name = "practice2"
 include ':LifeCycleActivity'
 include ':multiactivity'
 include ':intentfilter'
+include ':toastapp'
+include ':notificationapp'
