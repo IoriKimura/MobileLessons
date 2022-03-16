@@ -2,6 +2,7 @@ package ru.mirea.ivanov.dialog;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.TimePickerDialog;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Toast;
@@ -35,20 +36,26 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void onClickTime(View view){
-        MyTimeDialogFragment myTimeDialogFragment = new MyTimeDialogFragment();
         Calendar curTime = Calendar.getInstance();
         int hour = curTime.get(Calendar.HOUR_OF_DAY);
         int minute = curTime.get(Calendar.MINUTE);
-
-        myTimeDialogFragment.TimePickerDialog(this, 0, ,hour, minute, true);
+        MyTimeDialogFragment myTimeDialogFragment = new MyTimeDialogFragment(this,0, hour,minute,true);
         myTimeDialogFragment.show();
     }
 
     public void onClickDate(View view){
+        Calendar date = Calendar.getInstance();
+        int year = date.get(Calendar.YEAR);
+        int month = date.get(Calendar.MONTH);
+        int day = date.get(Calendar.DAY_OF_MONTH);
 
+        MyDateDialogFragment myDateDialogFragment = new MyDateDialogFragment(this, year, month, day);
+        myDateDialogFragment.show();
     }
 
     public void onClickProgress(View view){
+        MyProgressDialogFragment myProgressDialogFragment = new MyProgressDialogFragment(this);
+        myProgressDialogFragment.show();
 
     }
 }
