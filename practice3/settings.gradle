@@ -14,3 +14,5 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Practice3"
 include ':intentapp'
+include ':intentapp:share'
+include ':share'
