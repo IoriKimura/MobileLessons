@@ -6,6 +6,11 @@
     app:startDestination="@+id/nav_home">
 
     <fragment
+        android:id="@+id/hardwareFragment"
+        android:name="ru.mirea.ivanov.mireaproject.ui.hardware.HardwareFragment"
+        android:label="Hardware"
+        tools:layout="@layout/fragment_hardware" />
+    <fragment
         android:id="@+id/musicFragment"
         android:name="ru.mirea.ivanov.mireaproject.ui.mediaPlayer.musicFragment"
         android:label="Music Player"

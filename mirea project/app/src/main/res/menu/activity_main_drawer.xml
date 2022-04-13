@@ -28,5 +28,9 @@
             android:id="@+id/musicFragment"
             android:icon="@android:drawable/ic_media_pause"
             android:title="Music" />
+        <item
+            android:id="@+id/hardwareFragment"
+            android:icon="@android:drawable/ic_lock_idle_lock"
+            android:title="Hardware" />
     </group>
 </menu>
