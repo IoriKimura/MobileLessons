@@ -27,7 +27,7 @@ public class HardwareService extends Service {
                 Environment.MEDIA_MOUNTED_READ_ONLY.equals(state)) {
 
             File sdPath = Environment.getExternalStorageDirectory();
-            sdPath = new File(sdPath.getAbsolutePath() + "/Android/data/ru.mirea.jukov.mireaproject/files/Music");
+            sdPath = new File(sdPath.getAbsolutePath() + "/Android/data/ru.mirea.ivanov.mireaproject/files/Music");
             File audioFile = new File(sdPath, "rec_audio.mp3");
             mediaPlayer= MediaPlayer.create(this, Uri.fromFile(audioFile));
             mediaPlayer.setLooping(true);
