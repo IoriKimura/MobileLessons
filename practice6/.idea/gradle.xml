@@ -10,6 +10,7 @@
           <set>
             <option value="$PROJECT_DIR$" />
             <option value="$PROJECT_DIR$/Preferences" />
+            <option value="$PROJECT_DIR$/internalfilestorage" />
           </set>
         </option>
         <option name="resolveModulePerSourceSet" value="false" />
