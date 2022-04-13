@@ -16,3 +16,4 @@ rootProject.name = "practice6"
 include ':Preferences'
 include ':internalfilestorage'
 include ':notebook'
+include ':room'
