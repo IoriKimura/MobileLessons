@@ -20,7 +20,7 @@ public class PlayerService extends Service {
 
     @Override
     public void onCreate(){
-        mediaPlayer=MediaPlayer.create(this, R.raw.deviltown);
+        mediaPlayer=MediaPlayer.create(this, R.raw.devil);
         mediaPlayer.setLooping(true);
     }
     @Override

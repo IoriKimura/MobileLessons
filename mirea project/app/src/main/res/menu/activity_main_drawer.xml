@@ -32,5 +32,17 @@
             android:id="@+id/hardwareFragment"
             android:icon="@android:drawable/ic_lock_idle_lock"
             android:title="Hardware" />
+        <item
+            android:id="@+id/settingsFragment"
+            android:icon="@android:drawable/ic_menu_manage"
+            android:title="Settings" />
+        <item
+            android:id="@+id/storiesFragment"
+            android:icon="@android:drawable/ic_menu_agenda"
+            android:title="Stories" />
+        <item
+            android:id="@+id/notepadFragment"
+            android:icon="@android:drawable/ic_menu_edit"
+            android:title="Notepad" />
     </group>
 </menu>
