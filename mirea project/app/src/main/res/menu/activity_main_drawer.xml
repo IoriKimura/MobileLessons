@@ -41,8 +41,13 @@
             android:icon="@android:drawable/ic_menu_agenda"
             android:title="Stories" />
         <item
+            android:id="@+id/webResFragment"
+            android:icon="@android:drawable/ic_dialog_info"
+            android:title="Moscow Info" />
+        <item
             android:id="@+id/notepadFragment"
             android:icon="@android:drawable/ic_menu_edit"
             android:title="Notepad" />
+
     </group>
 </menu>
