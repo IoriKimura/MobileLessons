@@ -48,6 +48,10 @@
             android:id="@+id/notepadFragment"
             android:icon="@android:drawable/ic_menu_edit"
             android:title="Notepad" />
+        <item
+            android:id="@+id/mapsFragment"
+            android:icon="@android:drawable/ic_dialog_map"
+            android:title="Google Map" />
 
     </group>
 </menu>

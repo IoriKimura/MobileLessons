@@ -60,4 +60,9 @@
         android:name="ru.mirea.ivanov.mireaproject.ui.notepad.NotepadFragment"
         android:label="Notepad"
         tools:layout="@layout/fragment_notepad" />
+    <fragment
+        android:id="@+id/mapsFragment"
+        android:name="ru.mirea.ivanov.mireaproject.ui.map.MapsFragment"
+        android:label="Google Map"
+        tools:layout="@layout/fragment_maps" />
 </navigation>
