@@ -66,8 +66,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="140dp"
-            android:text="Запись и Проигрование"
+            android:text="Пиши и слушай!"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.559"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textView9" />
 
@@ -75,7 +76,7 @@
             android:id="@+id/startRecBut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
+            android:layout_marginTop="24dp"
             android:layout_marginEnd="84dp"
             android:onClick="startRecClick"
             android:text="Запись"
@@ -98,8 +99,8 @@
             android:id="@+id/startPlayBut"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="72dp"
+            android:layout_marginTop="24dp"
+            android:layout_marginEnd="52dp"
             android:onClick="startPlayClick"
             android:text="Слушать"
             app:layout_constraintEnd_toEndOf="parent"
@@ -115,24 +116,5 @@
             app:layout_constraintStart_toStartOf="@+id/startPlayBut"
             app:layout_constraintTop_toBottomOf="@+id/startPlayBut" />
 
-        <TextView
-            android:id="@+id/textView11"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="64dp"
-            android:layout_marginTop="16dp"
-            android:text="Для записи"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stopRecBut" />
-
-        <TextView
-            android:id="@+id/textView12"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="52dp"
-            android:text="Для проигрывания"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/stopPlayBut" />
     </androidx.constraintlayout.widget.ConstraintLayout>
 </FrameLayout>

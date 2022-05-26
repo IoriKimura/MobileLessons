@@ -1,5 +1,6 @@
 package ru.mirea.ivanov.mireaproject.ui.notepad;
 
+
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Insert;
@@ -15,8 +16,10 @@ public interface NoteDao {
 
     @Insert
     void insert(Note note);
+
     @Update
     void update(Note note);
+
     @Delete
     void delete(Note note);
 }

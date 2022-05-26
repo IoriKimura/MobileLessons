@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
-        android:text="Authentication"
+        android:text="Авторизация"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
@@ -48,8 +48,8 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="4dp"
         android:layout_marginTop="96dp"
-        android:text="Sign In"
         android:onClick="onClick"
+        android:text="Войти"
         app:layout_constraintStart_toStartOf="@+id/passwordEdit"
         app:layout_constraintTop_toBottomOf="@+id/passwordEdit" />
 
@@ -60,7 +60,7 @@
         android:layout_marginTop="96dp"
         android:layout_marginEnd="68dp"
         android:onClick="onClick"
-        android:text="New Account"
+        android:text="Регистрация"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/passwordEdit" />
 </androidx.constraintlayout.widget.ConstraintLayout>

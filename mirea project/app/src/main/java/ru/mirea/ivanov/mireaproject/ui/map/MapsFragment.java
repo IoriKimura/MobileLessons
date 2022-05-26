@@ -1,6 +1,7 @@
 package ru.mirea.ivanov.mireaproject.ui.map;
 
 import android.annotation.SuppressLint;
+import android.location.Location;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -18,15 +19,17 @@ import com.google.android.gms.maps.model.CameraPosition;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.maps.model.MarkerOptions;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 
 import ru.mirea.ivanov.mireaproject.R;
 
-public class MapsFragment extends Fragment implements GoogleMap.OnMapClickListener{
+public class MapsFragment extends Fragment {
 
     private GoogleMap map;
 
     private ArrayList<MarkerOptions> markers = new ArrayList<>();
+    AbstractCollection<LatLng> allPoints;
 
     private OnMapReadyCallback callback = new OnMapReadyCallback() {
 
@@ -37,7 +40,13 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMapClickListen
             setUpMap();
 
             map.setMyLocationEnabled(true);
-            map.getUiSettings().setZoomControlsEnabled(true);
+            map.getUiSettings().setZoomControlsEnabled(false);
+            map.setOnMapClickListener(lating -> {
+
+                CameraPosition cameraPosition = new CameraPosition.Builder().target(lating).zoom(12).build();
+                map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
+                addNewMarker("Где я?", "Новое место", lating);
+            });
         }
     };
 
@@ -50,6 +59,7 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMapClickListen
     }
 
     private void setUpMap(){
+        map.setMapType(GoogleMap.MAP_TYPE_HYBRID);
         // Вернадского 86
         LatLng mirea = new LatLng(55.661445, 37.477049);
         CameraPosition cameraPosition = new CameraPosition.Builder().target(mirea).zoom(12).build();
@@ -125,11 +135,4 @@ public class MapsFragment extends Fragment implements GoogleMap.OnMapClickListen
         }
     }
 
-    @Override
-    public void onMapClick(@NonNull LatLng latLng) {
-        CameraPosition cameraPosition = new CameraPosition.Builder().target(
-                latLng).zoom(12).build();
-        map.animateCamera(CameraUpdateFactory.newCameraPosition(cameraPosition));
-        addNewMarker("Где я?", "Новое место", latLng);
-    }
 }

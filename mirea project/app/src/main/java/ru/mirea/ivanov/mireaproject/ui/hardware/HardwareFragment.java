@@ -3,11 +3,14 @@ package ru.mirea.ivanov.mireaproject.ui.hardware;
 import static android.app.Activity.RESULT_OK;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
+import android.content.ActivityNotFoundException;
 import android.content.ContentResolver;
 import android.content.ContentValues;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.hardware.Sensor;
 import android.hardware.SensorManager;
 import android.media.MediaRecorder;
@@ -38,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 
 import ru.mirea.ivanov.mireaproject.MainActivity;
 import ru.mirea.ivanov.mireaproject.R;
@@ -60,7 +64,7 @@ public class HardwareFragment extends Fragment implements View.OnClickListener{
 
     // camera
     private ImageView imageView;
-    private static final int CAMERA_REQUEST = 0;
+    private static final int CAMERA_REQUEST = 1;
     private boolean isWork = false;
     private Uri imageUri;
     private Button startRecBut;
@@ -168,8 +172,18 @@ public class HardwareFragment extends Fragment implements View.OnClickListener{
     @Override
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == CAMERA_REQUEST && resultCode == RESULT_OK) {
-            imageView.setImageURI(imageUri);
+        if (resultCode == RESULT_OK) {
+            // Вернулись от приложения Камера
+            if (requestCode == CAMERA_REQUEST) {
+                // Получим Uri снимка
+                imageUri = data.getData();
+                Bundle extras = data.getExtras();
+                // Получим кадрированное изображение
+                Bitmap thePic = extras.getParcelable("data");
+                // передаём его в ImageView
+                ImageView picView = imageView.findViewById(R.id.userPhoto);
+                picView.setImageBitmap(thePic);
+            }
         }
     }
 
@@ -185,23 +199,9 @@ public class HardwareFragment extends Fragment implements View.OnClickListener{
     }
 
     public void takePhotoClick(View view) {
-        Log.d("tag", "button clicked");
-        Intent cameraIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
-        // проверка на наличие разрешений для камеры
-        if (cameraIntent.resolveActivity(getActivity().getPackageManager()) != null && isWork == true)
-        {
-            File photoFile = null;
-            try {
-                photoFile = createImageFile();
-            } catch (IOException e) {
-                e.printStackTrace();
-            }
+        Intent captureIntent = new Intent(MediaStore.ACTION_IMAGE_CAPTURE);
+        startActivityForResult(captureIntent, CAMERA_REQUEST);
 
-            String authorities = getActivity().getApplicationContext().getPackageName() + ".fileprovider";
-            imageUri = FileProvider.getUriForFile(view.getContext(), authorities, photoFile);
-            cameraIntent.putExtra(MediaStore.EXTRA_OUTPUT, imageUri);
-            startActivityForResult(cameraIntent, CAMERA_REQUEST);
-        }
     }
 
     public void startRecClick(View view){
